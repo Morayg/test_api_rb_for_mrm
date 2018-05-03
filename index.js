@@ -19,7 +19,7 @@ var token = jwt.sign({
     iss: 'auth.sberbank-school.ru',
     aud: ['default', 'auth', 'default'],
     validTill: token_expiration_timestamp,
-    tableNum: '00000001',
+    tableNum: '00000013',
     role: 'SPP'
 }, secret, {algorithm: 'HS512'});
 
