@@ -19,19 +19,21 @@ var token = jwt.sign({
     iss: 'auth.sberbank-school.ru',
     aud: ['default', 'auth', 'default'],
     validTill: token_expiration_timestamp,
-    tableNum: '00000013',
-    role: 'rb'
+    tableNum: '00000001',
+    role: 'SPP'
 }, secret, {algorithm: 'HS512'});
 
 //Указываем ENDPOINT, и параметры необходимые для метода
 var options = {
-    url: 'https://api.stage.sberbank-school.ru/v2/mrm/mobile/videos/video/setCompleted',
-    headers: {Authorization: 'Bearer ' + token},
-    preambleCRLF: true,
-    postambleCRLF: true,
-    json: {
-	videoId: 1
-    }
+  url:
+    "https://api.stage.sberbank-school.ru/v2/mrm/mobile/videos/video/getPrevVideo",
+  headers: { Authorization: "Bearer " + token },
+  preambleCRLF: true,
+  postambleCRLF: true,
+  json: {
+    videoId: 1,
+    currentDateTime: date_now
+  }
 };
 
 //отправляем запрос и выводим ответ в консоль
